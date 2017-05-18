@@ -25,7 +25,7 @@ async.waterfall([
     var client = new Twitter(require(path.join(__dirname, 'secrets.json')));
     async.each(messages, function(message, doneTweeting){
       console.log('tweeting', message.tweetText);
-      // client.post('statuses/update', {status: message.tweetText},  doneTweeting);
+      client.post('statuses/update', {status: message.tweetText},  doneTweeting);
     }, done);
   }
 ], function(error){
