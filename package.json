@@ -12,9 +12,12 @@
     "async": "^2.4.0",
     "cheerio": "^0.22.0",
     "he": "^1.1.1",
+    "install": "^0.10.1",
     "listify": "^1.0.0",
+    "mastodon": "^1.2.0",
     "moment": "^2.18.1",
     "moment-round": "^1.0.1",
+    "npm": "^4.6.1",
     "request": "^2.81.0",
     "twitter": "^1.7.0"
   },
