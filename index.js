@@ -28,7 +28,7 @@ async.auto({
     var client = new Twitter(require(path.join(__dirname, 'secrets.twitter.json')));
     async.each(results.messages, function(message, doneTweeting){
       console.log('tweeting', message.tweetText, isProd);
-      // if(isProd) client.post('statuses/update', {status: message.tweetText},  doneTweeting);
+      if(isProd) client.post('statuses/update', {status: message.tweetText},  doneTweeting);
     }, done);
   }],
   masto: ['messages', (results, done) => {
