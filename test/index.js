@@ -3,6 +3,7 @@ const path = require('path');
 const parse = require('../lib/parseFeed');
 const assert = require('assert');
 const cheerio = require('cheerio');
+const getDay = require('../lib/getDay');
 const parseDay = require('../lib/parseDay');
 const messageDay = require('../lib/messageDay');
 
@@ -29,11 +30,27 @@ describe('feed parsing', function(){
     before(function(){
       oneEvent = parseDay(parsed.days[1]);
       twoEvents = parseDay(parsed.days[2]);
+      noEvents = parseDay(parsed.days[3]);
     });
 
     it('should parse a day with one event', () => assert.deepEqual(oneEvent.length, 1));
     it('should parse a day with two events', () => assert.deepEqual(twoEvents.length, 2));
-
+    it('should parse colours correctly', function(){
+      const parsed = parseDay({
+        date: '2017-05-21T14:00:00.000Z',
+        venues: [{
+          venue: 'a',
+          title: 'b',
+          description: 'red'
+        }, {
+          venue: 'b',
+          title: 'c',
+          description: 'green and orange'
+        }]
+      });
+      assert.deepEqual(parsed[0].colors, ['red']);
+      assert.deepEqual(parsed[1].colors, ['orange', 'green']);
+    });
   });
 
   describe('messageDay', function(){
