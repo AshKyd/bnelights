@@ -15,6 +15,7 @@ async.auto({
   today: ['parsedFeed', (results, done) => getDay(results.parsedFeed,  Date.now(), done)],
   messages: ['today', (results, done) => {
     const today = results.today;
+    console.log('found event', Moment(today.date).fromNow());
     const todayReduced = parseDay(today);
     const messages = todayReduced.map(messageDay);
     done(null, messages);
@@ -22,14 +23,22 @@ async.auto({
   twit: ['messages', (results, done) => {
     var client = new Twitter(require(path.join(__dirname, 'secrets.twitter.json')));
     async.each(results.messages, function(message, doneTweeting){
-      console.log('tweeting', message.tweetText, isProd);
+      console.log({
+        action: 'tweet',
+        text: message.tweetText,
+        isProd
+      });
       if(isProd) client.post('statuses/update', {status: message.tweetText},  doneTweeting);
     }, done);
   }],
   masto: ['messages', (results, done) => {
     var client = new Mastodon(require(path.join(__dirname, 'secrets.mastodon.json')));
     async.each(results.messages, function(message, doneTweeting){
-      console.log('tooting', message.tweetText, isProd);
+      console.log({
+        action: 'toot',
+        text: message.tweetText,
+        isProd
+      });
       if(isProd) client.post('statuses', { status: message.tweetText }).then(resp => {
         doneTweeting();
       });
