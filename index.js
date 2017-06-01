@@ -23,12 +23,13 @@ async.auto({
   twit: ['messages', (results, done) => {
     var client = new Twitter(require(path.join(__dirname, 'secrets.twitter.json')));
     async.each(results.messages, function(message, doneTweeting){
+      const truncated = message.tweetText.substr(0,140);
       console.log({
         action: 'tweet',
-        text: message.tweetText,
+        text: truncated,
         isProd
       });
-      if(isProd) client.post('statuses/update', {status: message.tweetText},  doneTweeting);
+      if(isProd) client.post('statuses/update', {status: truncated},  doneTweeting);
     }, done);
   }],
   masto: ['messages', (results, done) => {
