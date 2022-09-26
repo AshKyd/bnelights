@@ -25,36 +25,14 @@ async function post() {
 
 const cron = require("node-cron");
 
-cron.schedule("59 6 * * *", () => {
-  post();
+// cron.schedule("59 6 * * *", () => {
+//   post();
+// });
+
+cron.schedule("40 13 * * *", async () => {
+  console.log("13fired");
 });
 
-cron.schedule("35 13 * * *", async () => {
-  const bneSocial = await masto.login({
-    url: "https://bne.social",
-    accessToken: process.env.MASTODON_TOKEN,
-  });
-
-  const mastoPosts = messages.map((message) => {
-    console.log("- Posting “" + "haha" + "”");
-    return bneSocial.statuses.create({
-      status: "cronjob fired at 35 13 * * *",
-      visibility: "direct",
-    });
-  });
-});
-
-cron.schedule("35 23 * * *", async () => {
-  const bneSocial = await masto.login({
-    url: "https://bne.social",
-    accessToken: process.env.MASTODON_TOKEN,
-  });
-
-  const mastoPosts = messages.map((message) => {
-    console.log("- Posting “" + "hehe" + "”");
-    return bneSocial.statuses.create({
-      status: "cronjob fired at 35 23 * * *",
-      visibility: "direct",
-    });
-  });
+cron.schedule("40 23 * * *", async () => {
+  console.log("23 fired");
 });
