@@ -1,5 +1,6 @@
 const getMessages = require("./lib/getMessages");
 const masto = require("masto");
+const cron = require("node-cron");
 
 async function post() {
   console.log(new Date(), "Fetching feed…");
@@ -23,16 +24,7 @@ async function post() {
   console.log("Done.");
 }
 
-const cron = require("node-cron");
-
-// cron.schedule("59 6 * * *", () => {
-//   post();
-// });
-
-cron.schedule("40 13 * * *", async () => {
-  console.log("13fired");
-});
-
-cron.schedule("40 23 * * *", async () => {
-  console.log("23 fired");
+// a minute before 5 pm
+cron.schedule("59 6 * * *", () => {
+  post();
 });
