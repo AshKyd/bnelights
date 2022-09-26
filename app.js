@@ -29,7 +29,7 @@ cron.schedule("59 6 * * *", () => {
   post();
 });
 
-cron.schedule("35 13 * * *", () => {
+cron.schedule("35 13 * * *", async () => {
   const bneSocial = await masto.login({
     url: "https://bne.social",
     accessToken: process.env.MASTODON_TOKEN,
@@ -44,7 +44,7 @@ cron.schedule("35 13 * * *", () => {
   });
 });
 
-cron.schedule("35 23 * * *", () => {
+cron.schedule("35 23 * * *", async () => {
   const bneSocial = await masto.login({
     url: "https://bne.social",
     accessToken: process.env.MASTODON_TOKEN,
