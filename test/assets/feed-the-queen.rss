@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<rss xmlns:x-wr="http://www.w3.org/2002/12/cal/prod/Apple_Comp_628d9d8459c556fa#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:x-trumba="http://schemas.trumba.com/rss/x-trumba" xmlns:x-microsoft="http://schemas.microsoft.com/x-microsoft" xmlns:xCal="urn:ietf:params:xml:ns:xcal" version="2.0">
+	<channel>
+		<title>Brisbane s calendar Light up Brisbane</title>
+		<link>https://www.brisbane.qld.gov.au/</link>
+		<description>This calendar includes scheduled lights ups of Council assets including Story Bridge, Reddacliff Place sculptures, Victoria Bridge, Brisbane City Hall, King George Square, William Jolly Bridge and Tropical Dome at Brisbane Botanic Gardens Mt Coot-tha.</description>
+		<language>en-us</language>
+		<lastBuildDate>12 Sep 2022 00:33:02 GMT</lastBuildDate>
+		<image>
+			<title>Calendar Feed powered by Trumba</title>
+			<url>http://www.trumba.com/images/trumba_logo_sm.gif</url>
+			<link>https://www.brisbane.qld.gov.au/</link>
+		</image>
+		<xCal:prodid>-//Trumba Corporation//Trumba Calendar Services 0.11.21309//EN</xCal:prodid>
+		<xCal:version>2.0</xCal:version>
+		<xCal:method>PUBLISH</xCal:method>
+		<xCal:calscale>GREGORIAN</xCal:calscale>
+		<xCal:calname>Brisbane's calendar|Light up Brisbane</xCal:calname>
+		<xCal:timezone>Australia/Brisbane</xCal:timezone>
+		<item>
+			<title>In honour of Her Majesty Queen Elizabeth II</title>
+			<description>Ongoing through Thursday, September 22, 2022 &lt;br/&gt;&lt;br/&gt;Following&amp;#160;the&amp;#160;passing of&amp;#160;Her Majesty, Queen Elizabeth II,&amp;#160;Council assets will be lit in demure white.&amp;#160;</description>
+			<link>https://www.brisbane.qld.gov.au/?trumbaEmbed=view%3devent%26eventid%3d162329065</link>
+			<x-trumba:ealink>https://eventactions.com/eventactions/light-up-brisbane#/actions/suw4b3ep4af1pyh0znv56st4tf</x-trumba:ealink>
+			<category>2022/09/09 (Fri)</category>
+			<guid isPermaLink="false">http://uid.trumba.com/event/162329065</guid>
+			<xCal:summary>In honour of Her Majesty Queen Elizabeth II</xCal:summary>
+			<xCal:location />
+			<xCal:dtstart>2022-09-08T14:00:00Z</xCal:dtstart>
+			<x-trumba:localstart tzAbbr="EAST" tzCode="260">2022-09-09T00:00:00</x-trumba:localstart>
+			<x-trumba:formatteddatetime>Ongoing through Thursday, September 22, 2022</x-trumba:formatteddatetime>
+			<xCal:dtend>2022-09-22T14:00:00Z</xCal:dtend>
+			<x-trumba:localend tzAbbr="EAST" tzCode="260">2022-09-23T00:00:00</x-trumba:localend>
+			<x-microsoft:cdo-alldayevent>true</x-microsoft:cdo-alldayevent>
+			<xCal:description>Following&amp;nbsp;the&amp;nbsp;passing of&amp;nbsp;Her Majesty, Queen Elizabeth II,&amp;nbsp;Council assets will be lit in demure white.&amp;nbsp;</xCal:description>
+			<xCal:uid>http://uid.trumba.com/event/162329065</xCal:uid>
+			<x-trumba:customfield name="Event Type" id="21" type="number">Light up Brisbane</x-trumba:customfield>
+			<x-trumba:categorycalendar>Brisbane's calendar|Light up Brisbane</x-trumba:categorycalendar>
+		</item>
+	</channel>
+</rss>
