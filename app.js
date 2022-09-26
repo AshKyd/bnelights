@@ -16,7 +16,7 @@ async function post() {
     console.log("- Posting “" + message + "”");
     return bneSocial.statuses.create({
       status: message,
-      visibility: "direct",
+      visibility: "unlisted",
     });
   });
 
