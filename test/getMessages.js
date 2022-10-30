@@ -37,7 +37,6 @@ describe("getMessages", () => {
     before(() => MockDate.set(new Date(1664434817832)));
     after(() => MockDate.reset());
     it("should return today's message", () => {
-      console.log("beginning test at date", new Date());
       const output = getMessages({ items: xml220929, targetSize: 500 });
       assert.deepEqual(output, [
         "Tonight landmarks around the city will be lit white & blue for National Police Remembrance Day",
