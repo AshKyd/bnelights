@@ -29,7 +29,9 @@ async function post() {
     console.log("- Posting “" + message + "”");
     return bneSocial.statuses.create({
       status: message,
-      visibility: "unlisted",
+
+      // We're not using hashtags or otherwise being obnoxious so this should be ok.
+      // visibility: "unlisted",
     });
   });
 
