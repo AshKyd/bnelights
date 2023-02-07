@@ -18,17 +18,17 @@ describe("getMessages", () => {
   it("should parse a message when there's only one item", () => {
     const output = getMessages({ items: xmlTheQueen, targetSize: 500 });
     assert.deepEqual(output, [
-      "Following the passing of Her Majesty, Queen Elizabeth II, Council assets will be lit in demure white.",
+      "Following the passing of Her Majesty, Qüeen Elizabeth II, Council assets will be lit in demure white.",
     ]);
   });
 
-  describe("at a specific date", () => {
+  describe("at a specific date + should decode html entities", () => {
     before(() => MockDate.set(new Date("2022-09-27T07:28:31.844Z")));
     after(() => MockDate.reset());
     it("should return today's message", () => {
       const output = getMessages({ items: xml2209, targetSize: 500 });
       assert.deepEqual(output, [
-        "Tonight landmarks around the city will be lit gold for Childhood Cancer Awareness Month 🎗️",
+        "Tonight landmarks around the city will be lit gold for Childhood Cancer & Awareness Month 🎗️",
       ]);
     });
   });

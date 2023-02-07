@@ -32,7 +32,7 @@
 			<xCal:dtend>2022-09-22T14:00:00Z</xCal:dtend>
 			<x-trumba:localend tzAbbr="EAST" tzCode="260">2022-09-23T00:00:00</x-trumba:localend>
 			<x-microsoft:cdo-alldayevent>true</x-microsoft:cdo-alldayevent>
-			<xCal:description>Following&amp;nbsp;the&amp;nbsp;passing of&amp;nbsp;Her Majesty, Queen Elizabeth II,&amp;nbsp;Council assets will be lit in demure white.&amp;nbsp;</xCal:description>
+			<xCal:description>Following&amp;nbsp;the&amp;nbsp;passing of&amp;nbsp;Her Majesty, Q&#252;een Elizabeth II,&amp;nbsp;Council assets will be lit in demure white.&amp;nbsp;</xCal:description>
 			<xCal:uid>http://uid.trumba.com/event/162329065</xCal:uid>
 			<x-trumba:customfield name="Event Type" id="21" type="number">Light up Brisbane</x-trumba:customfield>
 			<x-trumba:categorycalendar>Brisbane's calendar|Light up Brisbane</x-trumba:categorycalendar>
