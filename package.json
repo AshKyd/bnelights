@@ -15,7 +15,8 @@
     "masto": "^4.4.0",
     "moment-round": "^1.0.1",
     "node-cron": "^3.0.2",
-    "node-fetch": "^3.2.10"
+    "node-fetch": "^3.2.10",
+    "striptags": "^3.2.0"
   },
   "engines": {
     "node": ">=18"
