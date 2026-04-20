@@ -10,13 +10,16 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "commander": "^14.0.3",
     "dotenv": "^17.4.2",
     "fast-xml-parser": "^4.0.10",
     "he": "^1.2.0",
     "masto": "^4.4.0",
     "moment-round": "^1.0.1",
+    "morgan": "^1.10.1",
     "node-cron": "^3.0.2",
     "node-fetch": "^3.2.10",
+    "rotating-file-stream": "^3.2.9",
     "striptags": "^3.2.0"
   },
   "engines": {

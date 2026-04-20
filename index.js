@@ -1,50 +1,29 @@
-require("dotenv").config();
-const parseXml = require("./lib/parseXml");
-const getMessages = require("./lib/getMessages");
-const masto = require("masto");
+const { program } = require("commander");
 const cron = require("node-cron");
+const run = require("./lib/run");
+const log = require("./lib/logger");
 
-async function fetchData() {
-  console.time("fetching calendar");
-  const text = await fetch(
-    "http://www.trumba.com/calendars/light-up-brisbane.rss",
-  )
-    .then((res) => res.text())
-    .then(parseXml);
-  console.timeEnd("fetching calendar");
-  return text;
-  // const XMLData = require("fs").readFileSync(
-  //   "./test/assets/feed-the-queen.rss",
-  //   "utf8"
-  // );
-}
+program
+  .name("bnelights")
+  .description("What colour are the lights today?")
+  .version("1.0.0");
 
-async function post() {
-  console.log(new Date(), "Fetching feed…");
-  const items = await fetchData();
-  const messages = await getMessages({ items, targetSize: 500 });
-
-  console.log("Logging in…");
-  const bneSocial = await masto.login({
-    url: "https://bne.social",
-    accessToken: process.env.MASTODON_TOKEN,
-  });
-
-  const mastoPosts = messages.map((message) => {
-    console.log("- Posting “" + message + "”");
-    return bneSocial.statuses.create({
-      status: message,
-
-      // We're not using hashtags or otherwise being obnoxious so this should be ok.
-      // visibility: "unlisted",
+program
+  .command("cron")
+  .description("Run the bot on a schedule")
+  .action(() => {
+    log("Starting bot in cron mode (59 6 * * *)...");
+    cron.schedule("59 6 * * *", () => {
+      run();
     });
   });
 
-  await Promise.all(mastoPosts);
-  console.log("Done.");
-}
+program
+  .command("dry-run")
+  .description("Run the bot once without posting")
+  .action(async () => {
+    log("Running bot in dry-run mode...");
+    await run({ dryRun: true });
+  });
 
-// a minute before 5 pm AEST, expressed in UTC
-cron.schedule("59 6 * * *", () => {
-  post();
-});
+program.parse();
