@@ -1,13 +1,18 @@
+require("dotenv").config();
 const parseXml = require("./lib/parseXml");
 const getMessages = require("./lib/getMessages");
 const masto = require("masto");
 const cron = require("node-cron");
 
 async function fetchData() {
-  return fetch("http://www.trumba.com/calendars/light-up-brisbane.rss")
+  console.time("fetching calendar");
+  const text = await fetch(
+    "http://www.trumba.com/calendars/light-up-brisbane.rss",
+  )
     .then((res) => res.text())
     .then(parseXml);
-
+  console.timeEnd("fetching calendar");
+  return text;
   // const XMLData = require("fs").readFileSync(
   //   "./test/assets/feed-the-queen.rss",
   //   "utf8"
