@@ -1,23 +1,29 @@
-const assert = require("assert");
-const getMessages = require("../lib/getMessages");
-const parseXml = require("../lib/parseXml");
-const MockDate = require("mockDate");
+import assert from "node:assert";
+import fs from "node:fs";
+import path from "node:path";
+import MockDate from "mockdate";
+import getMessages from "../lib/getMessages.js";
+import parseXml from "../lib/parseXml.js";
+
+const __dirname = import.meta.dirname;
+
 const xmlTheQueen = parseXml(
-  require("fs").readFileSync("./test/assets/feed-the-queen.rss", "utf8")
+  fs.readFileSync(path.join(__dirname, "assets/feed-the-queen.rss"), "utf8")
 );
 const xml2209 = parseXml(
-  require("fs").readFileSync("./test/assets/2022-09-27.rss", "utf8")
+  fs.readFileSync(path.join(__dirname, "assets/2022-09-27.rss"), "utf8")
 );
 const xml220929 = parseXml(
-  require("fs").readFileSync("./test/assets/2022-09-29.rss", "utf8")
+  fs.readFileSync(path.join(__dirname, "assets/2022-09-29.rss"), "utf8")
 );
 const htmlEntities = parseXml(
-  require("fs").readFileSync("./test/assets/htmlentities.rss", "utf8")
+  fs.readFileSync(path.join(__dirname, "assets/htmlentities.rss"), "utf8")
 );
 
 describe("getMessages", () => {
   before(() => MockDate.set(new Date("2022-09-10T00:00:00.000Z")));
   after(() => MockDate.reset());
+
   it("should parse a message when there's only one item", () => {
     const output = getMessages({ items: xmlTheQueen, targetSize: 500 });
     assert.deepEqual(output, [

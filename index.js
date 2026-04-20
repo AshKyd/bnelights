@@ -1,7 +1,9 @@
-const { program } = require("commander");
-const cron = require("node-cron");
-const run = require("./lib/run");
-const log = require("./lib/logger");
+#!/usr/bin/env node
+
+import { program } from "commander";
+import cron from "node-cron";
+import run from "./lib/run.js";
+import log from "./lib/logger.js";
 
 program
   .name("bnelights")
@@ -14,7 +16,7 @@ program
   .action(() => {
     log("Starting bot in cron mode (59 6 * * *)...");
     cron.schedule("59 6 * * *", () => {
-      run();
+      run().catch((err) => log(`Error in cron task: ${err.message}`));
     });
   });
 
@@ -23,7 +25,11 @@ program
   .description("Run the bot once without posting")
   .action(async () => {
     log("Running bot in dry-run mode...");
-    await run({ dryRun: true });
+    try {
+      await run({ dryRun: true });
+    } catch (err) {
+      log(`Error in dry-run: ${err.message}`);
+    }
   });
 
 program.parse();

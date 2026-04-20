@@ -9,6 +9,7 @@
   },
   "author": "",
   "license": "ISC",
+  "type": "module",
   "dependencies": {
     "commander": "^14.0.3",
     "dotenv": "^17.4.2",
@@ -18,7 +19,6 @@
     "moment-round": "^1.0.1",
     "morgan": "^1.10.1",
     "node-cron": "^3.0.2",
-    "node-fetch": "^3.2.10",
     "rotating-file-stream": "^3.2.9",
     "striptags": "^3.2.0"
   },
