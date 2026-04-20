@@ -2,3 +2,6 @@ secrets.twitter.json
 secrets.mastodon.json
 node_modules
 out.json
+.env
+.DS_Store
+data
