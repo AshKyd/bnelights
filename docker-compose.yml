@@ -1,0 +1,10 @@
+services:
+  bot:
+    image: bridgebot:latest
+    container_name: bnelights
+    build: .
+    restart: unless-stopped
+    command: node . cron
+    volumes:
+      - ./.env:/app/.env:ro
+      - ./data:/app/data
